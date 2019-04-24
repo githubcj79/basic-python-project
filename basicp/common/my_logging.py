@@ -6,24 +6,27 @@ from __future__ import print_function, with_statement
 
 import logging
 
-# Create a custom logger
+# create logger
+# logger = logging.getLogger('simple_example')
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
-# Create handlers
-# c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler('basicp.log')
-# c_handler.setLevel(logging.WARNING)
-f_handler.setLevel(logging.DEBUG)
+# create console handler and set level to debug
+ch = logging.FileHandler(filename='app.log')
+ch.setLevel(logging.DEBUG)
 
-# Create formatters and add it to handlers
-# c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# c_handler.setFormatter(c_format)
-f_handler.setFormatter(f_format)
+# create formatter
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# Add handlers to the logger
-#logger.addHandler(c_handler)
-logger.addHandler(f_handler)
+# add formatter to ch
+ch.setFormatter(formatter)
 
-logger.warning('This is a warning')
-logger.error('This is an error')
+# add ch to logger
+logger.addHandler(ch)
+
+# 'application' code
+logger.debug('debug message')
+logger.info('info message')
+logger.warn('warn message')
+logger.error('error message')
+logger.critical('critical message')

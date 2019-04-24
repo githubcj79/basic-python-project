@@ -10,7 +10,7 @@ logger.name = __name__
 
 def run():
     print('Hello world !!!')
-    logger.warning('This is a warning')
+    logger.debug('* debug message *')
 
 def mysum(numbers):
     output = 0
