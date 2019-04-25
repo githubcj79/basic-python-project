@@ -10,7 +10,8 @@ import logging
 import sys
 from logging.handlers import TimedRotatingFileHandler
 # FORMATTER = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(message)s")
-FORMATTER = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(funcName)s:%(lineno)d — %(message)s")
+# FORMATTER = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(funcName)s:%(lineno)d — %(message)s")
+FORMATTER = logging.Formatter("[%(asctime)s][%(name)s][%(funcName)s:%(lineno)d][%(levelname)s][%(message)s]")
 LOG_FILE = "basicp.log"
 
 def get_console_handler():
